@@ -29,6 +29,16 @@ h1 {font-size: 4em;}  h2 {font-size: 3.5em;}  h3 {font-size: 2.8em;}
 
 h4 {font-size: 2.4em;}  h5 {font-size: 1.9em;}  h6 {font-size: 1.5em;}
 
+button {
+    background-color: var(--primary-shade-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
 .flip-image {
     transform: scaleX(-1);
     -o-transform:  scaleX(-1);
@@ -46,11 +56,18 @@ h4 {font-size: 2.4em;}  h5 {font-size: 1.9em;}  h6 {font-size: 1.5em;}
     min-width: 100%;
 }
 
+.hidden {
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
 /* navigation */
 header {
     background-color: rgba(0,0,0,0.2);
     position: fixed;
-    z-index: 1;
+    z-index: 5;
 }
     header > nav {
     }
@@ -242,6 +259,17 @@ header {
     }
 
     #character-profile > .character > figure > img {
+        transition: transform 0.5s;
+        -o-transition:  transform 0.5s;
+        -moz-transition:  transform 0.5s;
+        -webkit-transition:  transform 0.5s;
+    }
+
+    #character-profile > .character > figure > img:hover {
+        transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
     }
 
     #character-profile > .character > .character-bio {
@@ -272,61 +300,107 @@ header {
         padding: 2%;
     }
 
-    .shop > .shop-item > .price-tag {
-        background-color: var(--secundary-color);
-        position: absolute;
-        right: 10px;
-        top: -40px;
-        z-index: 2;
+        .shop > .shop-item > .price-tag {
+            background-color: var(--secundary-color);
+            position: absolute;
+            right: 10px;
+            top: -40px;
+            z-index: 2;
 
-        height: 60px;
-        width: 48px;
-        padding: 10px;
-    }
+            height: 60px;
+            width: 48px;
+            padding: 10px;
+        }
 
-    .shop > .shop-item > .price-tag > .amount {
-        position: absolute;
-        bottom: 10px;
-    }
+            .shop > .shop-item > .price-tag > .amount {
+                position: absolute;
+                bottom: 10px;
+            }
 
-    .shop > .shop-item figure {
-        max-width: 250px;
-        margin: 0 auto;
-        transition: transform 0.2s;
-        -o-transition:  transform 0.2s;
-        -moz-transition:  transform 0.2s;
-        -webkit-transition:  transform 0.2s;
-        z-index: 1;
-        cursor: pointer;
-    }
+        .shop > .shop-item figure {
+            max-width: 250px;
+            margin: 0 auto;
+            transition: transform 0.2s;
+            -o-transition:  transform 0.2s;
+            -moz-transition:  transform 0.2s;
+            -webkit-transition:  transform 0.2s;
+            z-index: 1;
+            cursor: pointer;
+        }
 
-    .shop > .shop-item figure:hover {
-        transform: scale(1.2);
-        -o-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -webkit-transform: scale(1.2);
-    }
+            .shop > .shop-item figure:hover {
+                transform: scale(1.2);
+                -o-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+            }
 
-    .shop > .shop-item > figure > img {
-        width: 100%;
-    }
+            .shop > .shop-item > figure > img {
+                width: 100%;
+            }
 
-    .shop > .shop-item > .description {
-        position: relative;
-        font-style: italic;
-        text-align: center;
-        margin-top: 20px;
-        min-height: 75px;
-        z-index: 2;
-    }
+        .shop > .shop-item > .description {
+            position: relative;
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+            min-height: 75px;
+            z-index: 2;
+        }
 
-    .shop > .shop-item > button {
-        background-color: var(--primary-shade-color);
-        border-color: var(--primary-color);
-        color: #fff;
-        padding: 10px;
-        width: 100%;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+        .shop > .selected-shop-item {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            transition: all 0.2s;
+        }
+
+            .shop > .selected-shop-item > .content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                max-width: 75%;
+                max-height: 60vh;
+                margin: 20vh auto;
+                background-color: #f3f3f3;
+                padding: 20px;
+                box-sizing: border-box;
+                color: #000;
+                position: relative;
+            }
+
+                .shop > .selected-shop-item > .content > .exit-button {
+                    position: absolute;
+                    right: 0px;
+                    cursor: pointer;
+                    background-color: #e3e3e3;
+                    text-align: center;
+                    padding: 10px;
+                    width: 40px;
+                }
+
+                .shop > .selected-shop-item > .content > figure{
+                   margin: 0 auto;
+                }
+                .shop > .selected-shop-item > .content > .details {
+                    display: grid;
+                    grid-template-rows: 1.4fr 1fr;
+                }
+
+                .shop > .selected-shop-item > .content > .details .item-name {
+                    margin: 0.2em 0;
+                }
+
+                .shop > .selected-shop-item > .content > .details input{
+                    padding: 2%;
+                    width: 100%;
+                    border: 1px solid darkgray;
+                    font-size: 1.4em;
+                    display: block;
+                    margin-top: 10%;
+                    box-sizing: border-box;
+                    margin-bottom: 2em;
+                }
