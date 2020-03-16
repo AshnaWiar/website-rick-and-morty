@@ -29,6 +29,12 @@ h1 {font-size: 4em;}  h2 {font-size: 3.5em;}  h3 {font-size: 2.8em;}
 
 h4 {font-size: 2.4em;}  h5 {font-size: 1.9em;}  h6 {font-size: 1.5em;}
 
+.flip-image {
+    transform: scaleX(-1);
+    -o-transform:  scaleX(-1);
+    -moz-transform:  scaleX(-1);
+    -webkit-transform:  scaleX(-1);
+}
 .container {
     width: 1200px;
     min-width: 1200px;

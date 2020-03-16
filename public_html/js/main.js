@@ -6,7 +6,7 @@ function initPage() {
 function setUpWebShopPrices() {
     const webShopPriceElementList = getWebShopPricesElement();
     webShopPriceElementList.forEach((value) => {
-        value.innerHTML = '&euro; ' + getRandomPriceBetween(13, 25);
+        value.innerHTML = '$ ' + getRandomPriceBetween(13, 25);
     })
 }
 
