@@ -29,7 +29,7 @@ function getWebShopPricesElement() {
 }
 
 
-function getWebshopItemElements() {
+function getWebShopItemElements() {
     return document.querySelectorAll('.shop-item');
 }
 
@@ -54,15 +54,20 @@ function displayShopItemDetails(value) {
 }
 
 function setupWebshopClickListener() {
-    const webshopItems = getWebshopItemElements();
+    const webshopItems = getWebShopItemElements();
     webshopItems.forEach(value => {
-        value.addEventListener('click', (e) => displayShopItemDetails(value))
+        value.addEventListener('click', (e) => {
+            e.stopPropagation();
+            displayShopItemDetails(value)
+        })
     });
 }
+
 
 function setUpButtonListeners() {
     setupCloseButtonListener();
     setupWebshopClickListener();
+    setupOrderButtonListener();
 }
 
 function setupCloseButtonListener() {
@@ -83,12 +88,24 @@ function onCloseButtonClick(value) {
 }
 
 function hideElement(targetSelector) {
-    document.getElementById(targetSelector).classList.add('hidden');
+    getElementById(targetSelector).classList.add('hidden');
 }
 
-function getElementById(elementId){
+function getElementById(elementId) {
     return document.getElementById(elementId);
 }
 
+function setupOrderButtonListener() {
+    const orderButtonElementList = getOrderButtonElements()
+    orderButtonElementList.forEach( button =>  {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
+    })
+}
+
+function getOrderButtonElements() {
+    return document.querySelectorAll('button.order-button');
+}
 
 initPage();
