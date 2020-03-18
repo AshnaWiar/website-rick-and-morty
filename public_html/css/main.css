@@ -65,9 +65,12 @@ button {
 
 /* navigation */
 header {
-    background-color: rgba(0,0,0,0.2);
-    position: fixed;
+    background-color: rgba(0,0,0,0.1);
     z-index: 5;
+}
+header.scrolled {
+    position: fixed;
+    background-color: #0d0a12;
 }
     header > nav {
     }
@@ -82,23 +85,51 @@ header {
 
     header > nav > ul > li {
         margin: 0 2% ;
+        position: relative;
     }
 
     header > nav > ul > li.brand {
         max-width: 10%;
     }
 
-    header > nav > ul > li:hover,
-    header > nav > ul > li:hover > a {
-
-    }
-
     header > nav > ul > li > a {
+        position: relative;
         text-decoration: none;
         font-size: 1.2em;
         color: #fff;
         display: block;
         padding: 20px;
+    }
+
+    header > nav > ul > li > a:before{
+        content: '';
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        background-color: #ff213c;
+        bottom: 0;
+        left: 0;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.1s;
+    }
+
+    header > nav > li:hover > a {
+        color:#ff213c;
+    }
+
+    .active:hover > a {
+        color:  #ff213c;
+    }
+
+
+    header > nav .active > a::before {
+
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.4s;
     }
 
 
@@ -410,23 +441,32 @@ header {
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
 }
+    #order-form section ul {
+        list-style: none;
+    }
+
+    #order-form section ul li:before {
+        content: '\2714';
+        color: var(--primary-color);
+        margin-right: 1em;
+    }
 
     #order-form > form .field{
-        display: block;
-        margin: 10px 0;
-    }
-    #order-form > form .field label{
             display: block;
-            margin-bottom: 0.5em;
+            margin: 10px 0;
         }
+        #order-form > form .field label{
+                display: block;
+                margin-bottom: 0.5em;
+            }
 
-    #order-form > form .field input {
-            width: 100%;
-            padding: 20px 10px;
-            border-radius: 5px;
-            border: 2px solid var(--secundary-color);
-            box-sizing: border-box;
-        }
+        #order-form > form .field input {
+                width: 100%;
+                padding: 20px 10px;
+                border-radius: 5px;
+                border: 2px solid var(--secundary-color);
+                box-sizing: border-box;
+            }
 
 footer {
     text-align: center;

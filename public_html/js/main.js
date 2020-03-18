@@ -1,6 +1,7 @@
 function initPage() {
     setUpWebShopPrices();
-    setUpButtonListeners()
+    setUpButtonListeners();
+    registerNavigationEvents();
 }
 
 function setUpWebShopPrices() {
@@ -106,6 +107,68 @@ function setupOrderButtonListener() {
 
 function getOrderButtonElements() {
     return document.querySelectorAll('button.order-button');
+}
+
+function registerNavigationEvents(){
+    var nav = document.querySelectorAll('nav ul li a');
+
+    nav.forEach(function(elm) {
+        elm.addEventListener("click", toggleActiveClass);
+    });
+
+    window.addEventListener('scroll', (e) => {
+        const scroll = document.documentElement.scrollTop;
+        const nav = getElementById('main-header');
+
+        if(scroll > nav.scrollHeight){
+            nav.classList.add('scrolled');
+        }else {
+            nav.classList.remove('scrolled');
+        }
+
+
+    });
+}
+
+
+function toggleActiveClass(ev){
+    ev.preventDefault();
+
+    var item = ev.target.parentNode; // li
+    var target = getElementById(ev.target.getAttribute("href").substr(1));
+
+    // return if already current
+    if (Classie.has(item, 'active')) {
+        return false;
+    }
+
+    // remove current
+    Classie.remove(document.querySelector('.active'), 'active');
+
+    // set current
+    Classie.add(item, 'active');
+    const headingOffset = 80;
+    window.scrollTo(0, target.offsetTop - headingOffset);
+}
+
+class Classie {
+    static has(elm, classString) {
+        if(elm == null)
+            return
+        return elm.classList.contains(classString);
+    }
+
+    static add(elm, classString) {
+        if(elm == null)
+            return
+        return elm.classList.add(classString);
+    }
+
+    static remove(elm, classString) {
+        if(elm == null)
+            return
+        return elm.classList.remove(classString);
+    }
 }
 
 initPage();
