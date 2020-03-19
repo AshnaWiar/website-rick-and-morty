@@ -7,6 +7,15 @@
 
 }
 
+.mobile-nav {
+    display: none;
+}
+
+.mb-1 {
+    margin: 0;
+    margin-bottom: 0.9em;
+}
+
 body, html {
     font-family: arial, sans-serif;
     background-color: var(--main-bg-color);
@@ -14,7 +23,8 @@ body, html {
     margin: 0;
 
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 }
 
@@ -24,9 +34,29 @@ a {
     font-weight: bold;
 }
 
-h1 {font-size: 4em;}  h2 {font-size: 3.5em;}  h3 {font-size: 2.8em;}
+h1 {
+    font-size: 4em;
+}
 
-h4 {font-size: 2.4em;}  h5 {font-size: 1.9em;}  h6 {font-size: 1.5em;}
+h2 {
+    font-size: 3.5em;
+}
+
+h3 {
+    font-size: 2.8em;
+}
+
+h4 {
+    font-size: 2.4em;
+}
+
+h5 {
+    font-size: 1.9em;
+}
+
+h6 {
+    font-size: 1.5em;
+}
 
 button {
     background-color: var(--primary-shade-color);
@@ -38,6 +68,7 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
+
 .margin-2 {
     margin: 0.4em 0;
 }
@@ -45,6 +76,7 @@ button {
 .margin-3 {
     margin: 0.8em 0;
 }
+
 .container {
     width: 1200px;
     min-width: 1200px;
@@ -64,74 +96,84 @@ button {
 }
 
 /* navigation */
-header {
-    background-color: rgba(0,0,0,0.1);
-    z-index: 5;
+#main-header, #main-header * {
+    transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
 }
-header.scrolled {
+
+#main-header {
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+#main-header.scrolled {
     position: fixed;
     background-color: #0d0a12;
 }
-    header > nav {
-    }
-
-    header > nav > ul {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        list-style: none;
-        justify-content: center;
-    }
-
-    header > nav > ul > li {
-        margin: 0 2% ;
-        position: relative;
-    }
-
-    header > nav > ul > li.brand {
-        max-width: 10%;
-    }
-
-    header > nav > ul > li > a {
-        position: relative;
-        text-decoration: none;
-        font-size: 1.2em;
-        color: #fff;
-        display: block;
-        padding: 20px;
-    }
-
-    header > nav > ul > li > a:before{
-        content: '';
-        height: 4px;
-        width: 100%;
-        position: absolute;
-        background-color: #ff213c;
-        bottom: 0;
-        left: 0;
-        transform: scale3d(0, 1, 1);
-        transition: transform 0.1s;
-    }
-
-    header > nav > li:hover > a {
-        color:#ff213c;
-    }
-
-    .active:hover > a {
-        color:  #ff213c;
-    }
 
 
-    header > nav .active > a::before {
+header > nav > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
 
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-        -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.4s;
-    }
+header > nav > ul > li {
+    margin: 0 2% ;
+    position: relative;
+}
 
+header > nav > ul > li.brand {
+    max-width: 9%;
+    margin: 0;
+}
+
+header > nav > ul > li.brand >img {
+    width: 100%;
+}
+
+header > nav > ul > li.brand > a {
+    padding: 0;
+}
+
+header > nav > ul > li > a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #fff;
+    display: block;
+    padding: 20px;
+}
+
+header > nav > ul > li > a:before{
+    content: '';
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    background-color: #ff213c;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.1s;
+}
+
+
+header > nav > ul >li:hover > a{
+    color:#ff213c;
+}
+
+header > nav .active > a::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.4s;
+}
 
 
 /* slider */
@@ -145,34 +187,33 @@ header.scrolled {
     position: relative;
 }
 
-    .slider > .slide > img {
-        width: 100%;
-        max-height: 100vh;
-    }
+.slider > .slide > img {
+    width: 100%;
+    max-height: 100vh;
+}
 
-    .slider >.slide > .slide-caption {
-        background-color: var(--main-bg-color);
-        border-left: 5px solid var(--primary-color);
-        color: #fff;
+.slider > .slide > .slide-caption {
+    background-color: var(--main-bg-color);
+    border-left: 5px solid var(--primary-color);
+    color: #fff;
 
-        position: absolute;
-        top: 15%;
-        left: 4%;
+    position: absolute;
+    top: 15%;
+    left: 4%;
 
-        width: 25%;
-        padding: 25px;
-    }
+    width: 25%;
+    padding: 25px;
+}
 
-    .slider > .slide > .slide-caption h1 {
-        color: var(--primary-color);
-        font-size: 4em;
-        margin: 0;
-    }
+.slider > .slide > .slide-caption h1 {
+    color: var(--primary-color);
+    font-size: 4em;
+    margin: 0;
+}
 
-    .slider > .slide > .slide-caption p {
+.slider > .slide > .slide-caption p {
 
-    }
-
+}
 
 
 /* home */
@@ -181,141 +222,152 @@ header.scrolled {
 .season > h6, .season p {
     margin: 0.8em 0;
 }
-    .season > .episodes {
-        position: relative;
-        height: 450px;
-        overflow: hidden;
-    }
 
-    #episode-number {
-        position: absolute;
-        right: 0;
-        background: rgba(0,0,0,0.4);
-        padding: 10px;
-        z-index: 2;
-    }
+.season > .episodes {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
 
-    .season > .episodes,
-    .season > .episodes > .episode {
-        margin: 0;
-        width: 100%;
-    }
+#episode-number {
+    position: absolute;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    z-index: 2;
+}
 
-    .season > .episodes > .episode {
-        position: absolute;
-        height: 450px;
-        z-index: 0;
-    }
-
-    .season > .episodes > .episode > img {
-        width: 100%;
-        margin-top: -7%;
-    }
-
-    .season > .episodes > .episode figcaption {
-        position: absolute;
-        bottom: 0;
-        background: rgba(0,0,0,0.8);
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-    .season > .episodes > .episode > img {
-        transition: transform 0.5s;
-        -o-transition: transform 0.5s;
-        -moz-transition: transform 0.5s;
-        -webkit-transition: transform 0.5s;
-    }
-    .season > .episodes > .episode > img:hover {
-        transform: scale(1.1);
-        -o-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-    }
-    .controls {
-        position: absolute;
-        width: 100%;
-        bottom: 50%;
-    }
-
-    .controls > button {
-        background: #fff;
-        padding: 0.8em;
-        border: none;
-        cursor: pointer;
-        transition: all 0.1s ease-in-out;
-        font-weight: bold;
-        font-size: 16px;
-        width: 35px;
-
-    }
-    .controls > button:hover {
-        color: #ff213c  ;
-    }
-
-    .controls .next {
-        position: absolute;
-        right: 0;
-    }
+.season > .episodes,
+.season > .episodes > .episode {
+    transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    margin: 0;
+    width: 100%;
+}
 
 
-    #episodes-group > .controls {
-        z-index: 3;
-    }
-    #episodes-group > .episode {
-        position: absolute;
-        top: 0;
-        opacity:0;
-        transition: opacity 0.5s;
-    }
+.season > .episodes > .episode {
+    position: absolute;
+    height: 450px;
+    z-index: 0;
+}
 
-    #episodes-group > .episode:first-of-type {
-        z-index: 2;
-        opacity: 1;
-    }
+.season > .episodes > .episode > img {
+    width: 100%;
+    margin-top: -7%;
+}
 
+.season > .episodes > .episode figcaption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.season > .episodes > .episode > img {
+    transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
+
+.season > .episodes > .episode > img:hover {
+    transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+.controls {
+    position: absolute;
+    width: 100%;
+    bottom: 50%;
+}
+
+.controls > button {
+    background: #fff;
+    padding: 0.8em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    font-weight: bold;
+    font-size: 16px;
+    width: 35px;
+    color: #000;
+
+}
+
+.controls > button:hover {
+    color: #ff213c;
+}
+
+.controls .next {
+    position: absolute;
+    right: 0;
+}
+
+
+#episodes-group > .controls {
+    z-index: 3;
+}
+
+#episodes-group > .episode {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#episodes-group > .episode:first-of-type {
+    z-index: 2;
+    opacity: 1;
+}
 
 
 /* characters */
 #character-profile > .character {
     position: relative;
     margin-bottom: 250px;
-    display: flex;
 }
-    #character-profile > .character > figure {
-        overflow: hidden;
-        height: 450px;
-        margin: 0;
 
-    }
+#character-profile > .character > figure {
+    overflow: hidden;
+    height: 450px;
+    margin: 0;
 
-    #character-profile > .character > figure > img {
-        transition: transform 0.5s;
-        -o-transition:  transform 0.5s;
-        -moz-transition:  transform 0.5s;
-        -webkit-transition:  transform 0.5s;
-    }
+}
 
-    #character-profile > .character > figure > img:hover {
-        transform: scale(1.2);
-        -o-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -webkit-transform: scale(1.2);
-    }
+#character-profile > .character > figure > img {
+    width: 100%;
+    transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
 
-    #character-profile > .character > .character-bio {
-        position: absolute;
-        right: -50px;
-        top: 45%;
-        height: 250px;
+#character-profile > .character > figure > img:hover {
+    transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}
 
-        background-color: #0d0a12;
-        padding: 25px;
-        width: 25%;
+#character-profile > .character > .character-bio {
+    position: absolute;
+    right: -50px;
+    top: 45%;
+    height: 250px;
 
-        border-top: 10px solid var(--primary-color);
+    background-color: #0d0a12;
+    padding: 25px;
+    width: 25%;
 
-    }
+    border-top: 10px solid var(--primary-color);
+}
 
 /* shop */
 #webshop > .shop {
@@ -323,150 +375,159 @@ header.scrolled {
     flex-wrap: wrap;
 }
 
-    .shop > .shop-item {
-        position: relative;
-        width: 27%;
-        background-color: #0d0a12;
-        margin: 2% 1%;
-        padding: 2%;
-    }
+.shop > .shop-item {
+    position: relative;
+    width: 27%;
+    background-color: #0d0a12;
+    margin: 2% 1%;
+    padding: 2%;
+}
 
-        .shop > .shop-item > .price-tag {
-            background-color: var(--secundary-color);
-            position: absolute;
-            right: 10px;
-            top: -40px;
-            z-index: 2;
+.shop > .shop-item > .price-tag {
+    background-color: var(--secundary-color);
+    position: absolute;
+    right: 10px;
+    top: -40px;
+    z-index: 2;
 
-            height: 60px;
-            width: 48px;
-            padding: 10px;
-        }
+    height: 60px;
+    width: 48px;
+    padding: 10px;
+}
 
-            .shop > .shop-item > .price-tag > .amount {
-                position: absolute;
-                bottom: 10px;
-            }
+.shop > .shop-item > .price-tag > .amount {
+    position: absolute;
+    bottom: 10px;
+}
 
-        .shop > .shop-item figure {
-            max-width: 250px;
-            margin: 0 auto;
-            transition: transform 0.2s;
-            -o-transition:  transform 0.2s;
-            -moz-transition:  transform 0.2s;
-            -webkit-transition:  transform 0.2s;
-            z-index: 1;
-            cursor: pointer;
-        }
+.shop > .shop-item figure {
+    max-width: 250px;
+    margin: 0 auto;
+    transition: transform 0.2s;
+    -o-transition: transform 0.2s;
+    -moz-transition: transform 0.2s;
+    -webkit-transition: transform 0.2s;
+    z-index: 1;
+    cursor: pointer;
+}
 
-            .shop > .shop-item figure:hover {
-                transform: scale(1.2);
-                -o-transform: scale(1.2);
-                -moz-transform: scale(1.2);
-                -webkit-transform: scale(1.2);
-            }
+.shop > .shop-item figure:hover {
+    transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}
 
-            .shop > .shop-item > figure > img {
-                width: 100%;
-            }
+.shop > .shop-item > figure > img {
+    width: 100%;
+}
 
-        .shop > .shop-item > .description {
-            position: relative;
-            font-style: italic;
-            text-align: center;
-            margin-top: 20px;
-            min-height: 75px;
-            z-index: 2;
-        }
+.shop > .shop-item > .description {
+    position: relative;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+    min-height: 75px;
+    z-index: 2;
+}
 
-        .shop > .selected-shop-item {
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0,0,0,0.5);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 4;
-            transition: all 0.2s;
-        }
+.shop > .selected-shop-item {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    transition: all 0.2s;
+}
 
-            .shop > .selected-shop-item > .content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                max-width: 75%;
-                max-height: 60vh;
-                margin: 20vh auto;
-                background-color: #f3f3f3;
-                padding: 20px;
-                box-sizing: border-box;
-                color: #000;
-                position: relative;
-            }
+.shop > .selected-shop-item > .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 75%;
+    max-height: 60vh;
+    margin: 20vh auto;
+    background-color: #f3f3f3;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #000;
+    position: relative;
+}
 
-                .shop > .selected-shop-item > .content > .exit-button {
-                    position: absolute;
-                    right: 0px;
-                    cursor: pointer;
-                    background-color: #e3e3e3;
-                    text-align: center;
-                    padding: 10px;
-                    width: 40px;
-                }
+.shop > .selected-shop-item > .content > .exit-button {
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    background-color: #e3e3e3;
+    text-align: center;
+    padding: 10px;
+    width: 40px;
+}
 
-                .shop > .selected-shop-item > .content > figure{
-                   margin: 0 auto;
-                }
-                .shop > .selected-shop-item > .content > .details {
-                    display: grid;
-                    grid-template-rows: 1.4fr 1fr;
-                }
+.shop > .selected-shop-item > .content > figure {
+    margin: 0 auto;
+}
+.shop > .selected-shop-item > .content > figure > img{
+    width: 350px;
+}
 
-                .shop > .selected-shop-item > .content > .details .item-name {
-                    margin: 0.2em 0;
-                }
 
-                .shop > .selected-shop-item > .content > .details input{
-                    padding: 2%;
-                    width: 100%;
-                    border: 1px solid darkgray;
-                    font-size: 1.4em;
-                    display: block;
-                    margin-top: 10%;
-                    box-sizing: border-box;
-                    margin-bottom: 2em;
-                }
+.shop > .selected-shop-item > .content > .details {
+    display: grid;
+    grid-template-rows: 1.4fr 1fr;
+}
 
-#order-form {
+.shop > .selected-shop-item > .content > .details .item-name {
+    margin: 0.2em 0;
+}
+
+.shop > .selected-shop-item > .content > .details input {
+    padding: 2%;
+    width: 100%;
+    border: 1px solid darkgray;
+    font-size: 1.4em;
+    display: block;
+    margin-top: 10%;
+    box-sizing: border-box;
+    margin-bottom: 2em;
+}
+
+.order-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
 }
-    #order-form section ul {
-        list-style: none;
-    }
 
-    #order-form section ul li:before {
-        content: '\2714';
-        color: var(--primary-color);
-        margin-right: 1em;
-    }
+.order-form article ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    #order-form > form .field{
-            display: block;
-            margin: 10px 0;
-        }
-        #order-form > form .field label{
-                display: block;
-                margin-bottom: 0.5em;
-            }
+.order-form article ul li:before {
+    content: '\2714';
+    color: var(--primary-color);
+    margin-right: 1em;
+}
 
-        #order-form > form .field input {
-                width: 100%;
-                padding: 20px 10px;
-                border-radius: 5px;
-                border: 2px solid var(--secundary-color);
-                box-sizing: border-box;
-            }
+.order-form > form .field {
+    display: block;
+    margin: 10px 0;
+}
+
+.order-form > form .field label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.order-form > form .field input {
+    width: 100%;
+    padding: 20px 10px;
+    border-radius: 5px;
+    border: 2px solid var(--secundary-color);
+    box-sizing: border-box;
+}
 
 footer {
     text-align: center;

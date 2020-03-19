@@ -1,3 +1,6 @@
+let isMobileNav = false;
+
+
 function initPage() {
     setUpWebShopPrices();
     setUpButtonListeners();
@@ -49,7 +52,7 @@ function setupSelectedItemView(value) {
 }
 
 function displayShopItemDetails(value) {
-    console.log("called");
+
     displaySelectedItemView();
     setupSelectedItemView(value);
 }
@@ -62,6 +65,11 @@ function setupWebshopClickListener() {
             displayShopItemDetails(value)
         })
     });
+
+    //stop propagation input
+    document.querySelector('.shop .selected-shop-item .content').addEventListener('click', (e) => {
+        e.stopPropagation();
+    })
 }
 
 
@@ -101,6 +109,8 @@ function setupOrderButtonListener() {
     orderButtonElementList.forEach( button =>  {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
+            location.href = "#order-form";
+
         })
     })
 }
@@ -108,12 +118,37 @@ function setupOrderButtonListener() {
 function getOrderButtonElements() {
     return document.querySelectorAll('button.order-button');
 }
+const header = getElementById('main-header');
+
+function toggleMobileNav() {
+    if(header.classList.contains('focus-nav')){
+        closeMobileNav();
+    }else{
+        openMobileNav();
+    }
+}
+function openMobileNav() {
+    isMobileNav = true;
+    header.classList.add('focus-nav');
+}
+
+function closeMobileNav() {
+    isMobileNav = false;
+    header.classList.remove('focus-nav');
+}
 
 function registerNavigationEvents(){
-    var nav = document.querySelectorAll('nav ul li a');
+    const nav = document.querySelectorAll('nav ul li a');
+
+    const openButtonNav = document.querySelector('header .mobile-nav .toggle-nav');
 
     nav.forEach(function(elm) {
         elm.addEventListener("click", toggleActiveClass);
+    });
+
+
+    openButtonNav.addEventListener('click', (e) => {
+       toggleMobileNav()
     });
 
     window.addEventListener('scroll', (e) => {
@@ -134,8 +169,8 @@ function registerNavigationEvents(){
 function toggleActiveClass(ev){
     ev.preventDefault();
 
-    var item = ev.target.parentNode; // li
-    var target = getElementById(ev.target.getAttribute("href").substr(1));
+    const item = ev.target.parentNode; // li
+    const target = getElementById(ev.target.getAttribute("href").substr(1));
 
     // return if already current
     if (Classie.has(item, 'active')) {
@@ -147,6 +182,11 @@ function toggleActiveClass(ev){
 
     // set current
     Classie.add(item, 'active');
+
+    if(isMobileNav){
+        closeMobileNav();
+    }
+
     const headingOffset = 80;
     window.scrollTo(0, target.offsetTop - headingOffset);
 }
@@ -169,6 +209,55 @@ class Classie {
             return
         return elm.classList.remove(classString);
     }
+}
+
+EpSlider = 1;
+prevEpSlider = EpSlider;
+function nextEp(){
+    EpSlider += 1
+    if(EpSlider >= 3)
+        EpSlider = 1;
+    getElementById("ep" + EpSlider).style.opacity = 1;
+    getElementById("ep" + prevEpSlider).style.opacity = 0;
+
+    getElementById("episode-number").innerHTML  = "No. #" + EpSlider;
+
+    prevEpSlider = EpSlider;
+
+}
+
+function prevEp(){
+    prevSlide = slideCounter;
+    slideCounter -= 1;
+    moveSlide(1);
+}
+MIN_SlIDES = 1;
+MAX_SLIDES = 2;
+function next(){
+    clearInterval(autoSlider);
+    slideCounter += 1;
+    prevSlide = slideCounter - 1;
+    moveSlide();
+}
+function moveSlide(int){
+
+
+    if(prevSlide < MIN_SlIDES )
+        prevSlide = MAX_SLIDES;
+
+    if(slideCounter > MAX_SLIDES)
+        slideCounter = MIN_SlIDES;
+
+    if(slideCounter < MIN_SlIDES)
+        slideCounter = MAX_SLIDES;
+
+    getElementById("slide" + prevSlide).style.opacity = 0;
+    getElementById("p" + prevSlide).classList.remove("pActive");
+    getElementById("slide" + slideCounter).style.opacity = 1;
+    getElementById("p" + slideCounter).classList.add("pActive");
+
+    console.log(prevSlide, slideCounter);
+    autoSlider = setInterval(next, 4000)
 }
 
 initPage();
