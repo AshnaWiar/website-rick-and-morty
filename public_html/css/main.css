@@ -219,8 +219,12 @@ header > nav .active > a::before {
 /* home */
 
 /* season */
-.season > h6, .season p {
+.season > h2, .season p {
     margin: 0.8em 0;
+}
+
+.season > h2 {
+    font-size: 1.8em;
 }
 
 .season > .episodes {
@@ -369,7 +373,11 @@ header > nav .active > a::before {
     border-top: 10px solid var(--primary-color);
 }
 
-/* shop */
+#character-profile > .character > .character-bio > h1 {
+    font-size: 1.5em;
+}
+
+    /* shop */
 #webshop > .shop {
     display: flex;
     flex-wrap: wrap;
