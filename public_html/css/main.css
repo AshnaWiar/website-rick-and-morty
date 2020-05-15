@@ -177,22 +177,17 @@ header > nav .active > a::before {
 
 
 /* slider */
-.slider {
 
+.slider > figure {
+    margin: 0;
 }
 
-.slider > .slide {
-    max-height: 100vh;
-    height: 100vh;
-    position: relative;
-}
-
-.slider > .slide > img {
+.slider > figure > img {
     width: 100%;
     max-height: 100vh;
 }
 
-.slider > .slide > .slide-caption {
+.slider > .slide-caption {
     background-color: var(--main-bg-color);
     border-left: 5px solid var(--primary-color);
     color: #fff;
@@ -203,6 +198,12 @@ header > nav .active > a::before {
 
     width: 25%;
     padding: 25px;
+}
+
+.slider > .slide-caption h1 {
+    color: var(--primary-color);
+    font-size: 4em;
+    margin: 0;
 }
 
 .slider > .slide > .slide-caption h1 {
@@ -219,11 +220,12 @@ header > nav .active > a::before {
 /* home */
 
 /* season */
-.season > h2, .season p {
+.season > h2, .season p{
     margin: 0.8em 0;
 }
 
-.season > h2 {
+.season > h2,
+.season > h1{
     font-size: 1.8em;
 }
 
@@ -467,10 +469,12 @@ header > nav .active > a::before {
     position: absolute;
     right: 0px;
     cursor: pointer;
-    background-color: #e3e3e3;
+    background-color: #232323;
     text-align: center;
     padding: 10px;
     width: 40px;
+    margin: 0;
+    border: none;
 }
 
 .shop > .selected-shop-item > .content > figure {
@@ -524,12 +528,12 @@ header > nav .active > a::before {
     margin: 10px 0;
 }
 
-.order-form > form .field label {
+.order-form > form label {
     display: block;
-    margin-bottom: 0.5em;
+    margin: 0.8em 0;
 }
 
-.order-form > form .field input {
+.order-form > form input {
     width: 100%;
     padding: 20px 10px;
     border-radius: 5px;

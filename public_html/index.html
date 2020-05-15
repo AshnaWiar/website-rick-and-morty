@@ -30,16 +30,14 @@
 
     <!-- slideshow -->
     <section id="home" class="container-fluid slider">
-
-        <article class="slide">
+        <figure>
             <img src="img/slider/slide_1.png" alt="first-slide">
-            <section class="slide-caption center-left">
-                <h1>Rick And Morty</h1>
-                <p>Rick and Morty is an American adult animated science fiction sitcom created by Justin Roiland and Dan
-                    Harmon for Cartoon Network's late-night programming block Adult Swim.</p>
-            </section>
+        </figure>
+        <article class="slide-caption center-left">
+            <h1>Rick And Morty</h1>
+            <p>Rick and Morty is an American adult animated science fiction sitcom created by Justin Roiland and Dan
+                Harmon for Cartoon Network's late-night programming block Adult Swim.</p>
         </article>
-
     </section>
 
     <!-- season info -->
@@ -128,7 +126,7 @@
         <article class="character">
 
             <figure>
-                <img src="img/characters/morty-smith.png" alt="image of rick sanches">
+                <img src="img/characters/morty-smith.png" alt="image of morty smith">
             </figure>
 
             <section class="character-bio">
@@ -143,7 +141,7 @@
         <article class="character">
 
             <figure>
-                <img src="img/characters/jerry-smith.png" alt="image of rick sanches">
+                <img src="img/characters/jerry-smith.png" alt="image of jerry smith">
             </figure>
 
             <section class="character-bio">
@@ -158,7 +156,7 @@
         <article class="character">
 
             <figure>
-                <img src="img/characters/beth-smith.png" alt="image of rick sanches">
+                <img src="img/characters/beth-smith.png" alt="image of beth smith">
             </figure>
 
             <section class="character-bio">
@@ -173,7 +171,7 @@
         <article class="character">
 
             <figure>
-                <img src="img/characters/summer-smith.jpg" alt="image of rick sanches">
+                <img src="img/characters/summer-smith.jpg" alt="image of summer-smith">
             </figure>
 
             <section class="character-bio">
@@ -195,7 +193,7 @@
         <article class="shop">
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/morty-future-stone.png"
-                 data-description='ToDoOOoOO' data-name="Death Crystal Morty Pop! Vinyl Figure">
+                     data-description='morty pop' data-name="Death Crystal Morty Pop! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -207,7 +205,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/rick-with-sign.png"
-                 data-description='ToDoOOoOO' data-name="Hologram Rick Clone! Vinyl Figure">
+                     data-description='rick pop' data-name="Hologram Rick Clone! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -219,7 +217,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/rick-sticker.png"
-                 data-description='ToDoOOoOO' data-name="Rick Sanches epic Sticker">
+                     data-description='rick sticker' data-name="Rick Sanches epic Sticker">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -231,7 +229,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/meeseek-backpack.png"
-                 data-description='ToDoOOoOO' data-name="Mr. Meeseeks backpack">
+                     data-description='rugzak' data-name="Mr. Meeseeks backpack">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -243,7 +241,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/black-hole-box.png"
-                 data-description='ToDoOOoOO' data-name="0-0-0-0">
+                     data-description='zwart gat' data-name="0-0-0-0">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -255,7 +253,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/funk-doll.png"
-                 data-description='ToDoOOoOO' data-name="Teddy Rick! Vinyl Figure">
+                     data-description='rick knuffel' data-name="Teddy Rick! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -267,7 +265,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/hospice-morty.png"
-                 data-description='ToDoOOoOO' data-name="Hospice Morty Pop! Vinyl Figure">
+                     data-description='morty pop' data-name="Hospice Morty Pop! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -279,7 +277,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/jerry-ex-kiara.png"
-                 data-description='ToDoOOoOO' data-name="Keara Pop! Vinyl Figure">
+                     data-description='keara pop' data-name="Keara Pop! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -291,7 +289,7 @@
             </section>
 
             <section class="shop-item" data-amount="%s" data-img="img/webshop/app-developer.png"
-                 data-description='ToDoOOoOO' data-name="Glootie the app developer! Vinyl Figure">
+                     data-description='Glootie pop' data-name="Glootie the app developer! Vinyl Figure">
                 <p class="price-tag">
                     <span class="amount">&euro; %s</span>
                 </p>
@@ -306,7 +304,7 @@
                      data-exit-target="selected-shop-item">
 
                 <article class="content">
-                    <div class="exit-button" data-exit-target="selected-shop-item">X</div>
+                    <button class="exit-button" data-exit-target="selected-shop-item">X</button>
                     <figure>
                         <img id="selected-item-img" src="#" alt="rick and morty Vinyl Figure">
                     </figure>
@@ -317,7 +315,8 @@
                         </div>
                         <div class="group">
                             <input type="number" placeholder="Amount">
-                            <button class="order-button exit-button" data-exit-target="selected-shop-item">Order Now!</button>
+                            <button class="order-button exit-button" data-exit-target="selected-shop-item">Order Now!
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -345,25 +344,18 @@
         </article>
         <form>
             <h5 id='order-form' class="margin-3">Bestel Nu</h5>
-            <div class="field">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Full Name">
-            </div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Full Name">
 
-            <div class="field">
-                <label for="address">Address</label>
-                <input id="address" type="text" placeholder="Address">
-            </div>
+            <label for="address">Address</label>
+            <input id="address" type="text" placeholder="Address">
 
-            <div class="field">
-                <label for="email">E-mail</label>
-                <input id="email" type="text" placeholder="E-mail">
-            </div>
+            <label for="email">E-mail</label>
+            <input id="email" type="text" placeholder="E-mail">
 
-            <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" type="tel" placeholder="Phone">
-            </div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="Phone">
+
             <button type="submit">Order Now!</button>
         </form>
     </section>

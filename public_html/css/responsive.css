@@ -140,7 +140,7 @@
         margin: 0 auto;
     }
 
-    #home > .slide > .slide-caption {
+    .slider .slide-caption {
         width: 100%;
         border: none;
         position: static;
@@ -221,7 +221,7 @@
 
 @media only screen and (max-width: 560px) {
 
-    #home > .slide {
+    .slider {
         max-height: unset;
         height: 100vh;
         position: relative;
@@ -231,14 +231,14 @@
         align-items: start;
     }
 
-    #home > .slide > img {
+    .slider > figure {
         width: 250%;
         margin-left: -50%;
         margin-top: -30%;
         display: block;
     }
 
-    #home > .slide > .slide-caption {
+    .slider .slide-caption {
         width: 100%;
         border: none;
         position: static;
